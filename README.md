@@ -1,4 +1,12 @@
 # IMDB Canal+
+#### Setup 
+Data processing and simple graphQL server via docker
+```shell
+make server-build
+make server-up
+```
+> verify : http://localhost:8080/graphql/graphiql
+
 #### Prérequis
 > Le test devra être réalisé sous Angular 6 ou +, le choix des modules complémentaires est libre, le back-end et la persistance des données n’est pas nécessaire pour ce test. L’aspect de l’IHM est libre mais se doit d’être à minima ergonomique.
 #### Sujet
