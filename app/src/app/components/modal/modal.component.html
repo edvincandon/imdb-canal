@@ -1,0 +1,10 @@
+<div class="modal" [ngClass]="{
+  hidden: !opened,
+  init: init
+}">
+  <div class="content">
+    <div (click)="modal.toggle()" class="close">x</div>
+    <ng-content></ng-content>
+  </div>
+  <div class="bg" (click)="modal.opened && modal.toggle()"></div>
+</div>

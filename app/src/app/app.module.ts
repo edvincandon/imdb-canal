@@ -1,16 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser'
+import { NgModule } from '@angular/core'
+import { ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
+import { AppComponent } from './app.component'
+import { APIService } from './services/api/api.service'
+import { ModalComponent } from './components/modal/modal.component'
+import { ModalService } from './services/modal/modal.service'
+import { FormComponent } from './components/forms/form.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalComponent,
+    FormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [APIService, ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,5 @@
+<form [formGroup]="formGroup">
+  <label *ngFor="let el of source">
+    {{ el.label }} : <input type="text" formControlName="{{el.key}}" />
+  </label>
+</form>
