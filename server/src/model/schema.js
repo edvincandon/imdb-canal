@@ -9,8 +9,19 @@ const schema = buildSchema(`
     genres: String
   }
 
+  input MovieInput {
+    primaryTitle: String
+    originalTitle: String
+    startYear: String
+    genres: String
+  }
+
   type Query {
     getByTitle(title: String): [Movie]
+  }
+
+  type Mutation {
+    update(id: ID!, input: MovieInput): Movie
   }
 `);
 
