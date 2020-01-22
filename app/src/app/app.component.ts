@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Subject, combineLatest, BehaviorSubject, of, merge, Observable } from 'rxjs';
 import { debounceTime, switchMap, distinctUntilChanged, scan, map } from 'rxjs/operators';
 import { APIService } from './services/api/api.service';
-import { isValidYear } from './utils';
 import { ModalService } from './services/modal/modal.service';
 import { searchForm, editForm } from './components/forms/form.config';
 
@@ -41,11 +40,9 @@ export class AppComponent implements OnInit {
     )));
 
     combineLatest(merge(results$, updates$), this.search$)
-      .pipe(map(([data, { year }]) => (
-        data.length && isValidYear(year) ?
-          data.filter(({ startYear }) => startYear && startYear.includes(year)) :
-          data
-        ).sort((a, b) => a.startYear > b.startYear ? -1 : 1)))
+      .pipe(map(([data, { year }]) => data
+        .filter(({ startYear }) => startYear && startYear.includes(year))
+        .sort((a, b) => a.startYear > b.startYear ? -1 : 1)))
       .subscribe(this.data$);
 
     this.selected$.subscribe(() => this.modal.toggle());
