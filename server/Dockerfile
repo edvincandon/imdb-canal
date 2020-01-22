@@ -24,6 +24,9 @@ RUN sqlite3 movies.db 'CREATE TABLE movies (id INTEGER PRIMARY KEY, titleType te
 RUN sqlite3 movies.db '.import title.basics.tsv movies'
 RUN sqlite3 movies.db 'CREATE INDEX primaryTitle_index ON movies (primaryTitle COLLATE NOCASE);'
 RUN sqlite3 movies.db 'CREATE INDEX originalTitle_index ON movies (originalTitle COLLATE NOCASE);'
+RUN sqlite3 movies.db 'UPDATE movies SET startYear = NULL WHERE startYear = "\N";'
+RUN sqlite3 movies.db 'UPDATE movies SET genres = NULL WHERE genres = "\N";'
+
 RUN chmod 644 movies.db
 
 COPY ./package*.json /app/server/
