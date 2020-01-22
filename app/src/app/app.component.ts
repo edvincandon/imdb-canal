@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
     combineLatest(
       merge(results$, updates$),
       this.search$,
-      (data, { year }) => (isValidYear(year) ? data.filter(({ startYear }) => startYear.includes(year)) : data)
+      (data, { year }) => (data.length && isValidYear(year) ? data.filter(({ startYear }) => startYear && startYear.includes(year)) : data)
     )
       .pipe(map((data) => data.sort((a, b) => a.startYear > b.startYear ? -1 : 1)))
       .subscribe(this.data$)

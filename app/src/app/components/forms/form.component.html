@@ -1,5 +1,6 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" [class]="align">
   <label *ngFor="let el of source">
-    {{ el.label }} : <input type="text" formControlName="{{el.key}}" />
+    <span [ngClass]="{hidden: el.type === 'hidden'}">{{ el.label }}</span>
+    <input [type]="el.type" formControlName="{{el.key}}" [ngClass]="{error: formGroup.controls[el.key].invalid}" [readonly]="el.readonly"/>
   </label>
 </form>

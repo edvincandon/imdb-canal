@@ -2,11 +2,12 @@
   <div>
     Search IMDB database
   </div>
-  <app-form [source]="searchForm" (data$)="search$.next($event)"></app-form>
+  <app-form [source]="searchForm" (data$)="search$.next($event)" align="horizontal"></app-form>
 </header>
 
 <app-modal [opened]="modal.opened">
-  <app-form [source]="editForm" [hydrate]="selected$ | async" (data$)="update$.next($event)"></app-form>
+  <h3>Editing "{{ (selected$ | async)?.primaryTitle }}"</h3>
+  <app-form [source]="editForm" [hydrate]="selected$ | async" (data$)="update$.next($event)" align="vertical"></app-form>
 </app-modal>
 
 <section>

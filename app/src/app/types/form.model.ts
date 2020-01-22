@@ -1,9 +1,16 @@
-interface SearchFields {
-  title: string
-  year: string
-}
+import { ValidatorFn } from "@angular/forms";
 
-interface FormControlData {
-  label: string,
-  key: string
+declare global {
+  interface SearchFields {
+    title: string
+    year: string
+  }
+
+  interface FormControlData {
+    label: string,
+    key: string,
+    type: 'text' | 'hidden',
+    readonly?: boolean,
+    validators?: ValidatorFn[]
+  }
 }
