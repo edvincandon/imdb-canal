@@ -34,7 +34,7 @@ export class APIService {
 
   searchByTitle(title: string): Observable<Movie[]> {
     return (this.doGraphQlQuery(buildSearchQuery(title)) as Observable<GraphQlResponse<Movie[]>>)
-      .pipe(map(({ data: { getByTitle } }) => getByTitle));
+      .pipe(map(({ data: { getByTitle } }) => getByTitle || []));
   }
 
   update(movie: Movie): Observable<Movie> {
