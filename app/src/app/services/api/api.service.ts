@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, NEVER } from 'rxjs';
-import { endpoint } from '../../config.json';
+import { environment } from '../../../environments/environment'
 import { map, catchError, tap } from 'rxjs/operators';
 import { formatValues } from 'src/app/utils/index.js';
 
@@ -28,7 +28,7 @@ export class APIService {
 
   doGraphQlQuery(query: string): Observable<GraphQlResponse<any>> {
     return this.http
-      .post<GraphQlResponse<any>>(endpoint, query, { headers })
+      .post<GraphQlResponse<any>>(environment.endpoint, query, { headers })
       .pipe(catchError(() => NEVER)); /* 😇 ignore for now */
   }
 

@@ -12,3 +12,4 @@ Run angular app :
 ```shell
 cd app && ng serve
 ```
+> server url config in `app/environments/environment.ts`
