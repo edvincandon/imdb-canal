@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core'
+import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class ModalService {
-  public opened: boolean = false
+  public opened = false;
 
   toggle() {
-    this.opened = !this.opened
+    this.opened = !this.opened;
   }
 }
