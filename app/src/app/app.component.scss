@@ -1,0 +1,46 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 5;
+  background: #141519;
+  color: #be80d8;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 25px;
+  width: 100%;
+}
+
+section {
+  padding: 100px 20px 20px;
+}
+
+.selectable {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 8px 7px;
+  position: relative;
+  transition: none;
+  span.green { color: #96ae80; }
+  span.blue { color: #75b6c1; }
+  &:hover {
+    background: #141519;
+    color: #bb7dd6;
+    transition: all .1s ease-in-out;
+    span.blue { color: #bb7dd6; }
+    &:after {
+      content: '(edit)';
+      color: #96ae80;
+      position: absolute;
+      right: 10px;
+      top: 7px;
+    }
+  }
+}
+
+.warning {
+  padding: 8px 7px;
+  color: #d27278;
+}

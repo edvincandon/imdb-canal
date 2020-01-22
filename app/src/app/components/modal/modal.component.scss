@@ -1,3 +1,49 @@
-.hidden {
-  display: none;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .2s ease-in-out;
+  .content {
+    width: 720px;
+    padding: 25px 10px 10px;
+    background: white;
+    border-radius: 10px;
+    transition: all .25s ease-in-out;
+    position: relative;
+  }
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+  }
+
+  .close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.2em;
+    width: 33px;
+    height: 33px;
+  }
+
+  &.hidden {
+    z-index: -1;
+    opacity: 0;
+    transition: none!important;
+    .content {
+      transform: translateY(50%);
+    }
+  }
 }

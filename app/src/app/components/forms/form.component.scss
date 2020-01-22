@@ -1,0 +1,25 @@
+input {
+  font-size: 1em;
+  border: 2px solid rgba(0,0,0,0.7);
+  height: 23px;
+  font-size: 1em;
+  font-family: 'Roboto Mono', monospace;
+  outline: none;
+  padding: 2px 10px;
+  background: rgba(255,255,255,0.1);
+  color: #a9aeba;
+  margin-right: 10px;
+  width: 200px;
+  &.small {
+    width: 90px;
+  }
+}
+
+label {
+  color: #a9aeba;
+}
+
+input[readonly] {
+  border: none;
+  color: grey;
+}
